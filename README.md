@@ -1,50 +1,48 @@
-# Welcome to your Expo app 👋
+# 📚 PomoEstudo – Gerencie seus estudos com foco!
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+PomoEstudo é um aplicativo desenvolvido em **React Native** para auxiliar estudantes universitários na **gestão do tempo de estudo**, utilizando a técnica Pomodoro e um **calendário de produtividade** para acompanhar o progresso.
 
-## Get started
+---
 
-1. Install dependencies
+## 🚀 Funcionalidades
 
+- ⏱️ **Técnica Pomodoro**: sessões de foco com timers configuráveis (25 min foco / 5 min descanso);
+- 📅 **Calendário Integrado**: registra os dias em que o Pomodoro foi utilizado, marcando no calendário;
+- 🔔 **Notificações locais** para início e fim das sessões de estudo;
+- 🎵 (Opcional) **Playlist de música Lo-Fi** para melhorar a concentração.
+
+---
+
+## 🧠 Motivação
+
+Estudantes universitários frequentemente enfrentam dificuldades para manter o foco nos estudos. O FocusTime foi criado com o objetivo de **incentivar a disciplina, melhorar a concentração e acompanhar o progresso de forma simples e visual**.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- [React Native](https://reactnative.dev/)
+- [Expo](https://expo.dev/) para desenvolvimento e build do app
+- [React Navigation](https://reactnavigation.org/) para navegação entre telas
+- [SQLite](https://docs.expo.dev/versions/latest/sdk/sqlite/) para persistência local dos dados
+- [React Native Calendars](https://github.com/wix/react-native-calendars) para exibir o calendário
+- [expo-notifications](https://docs.expo.dev/versions/latest/sdk/notifications/) para notificações locais
+
+---
+
+## 📱 Screenshots
+
+![Tela Pomodoro](https://github.com/matheusvaraujo/react_pomodoro/blob/main/tela_principal_pomodoro.jpg)
+![Tela Calendário](https://github.com/matheusvaraujo/react_pomodoro/blob/main/calendario_pomodoro.jpg)
+
+---
+
+## ⚙️ Instalação
+
+1. Clone este repositório:
    ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+   git clone https://github.com/matheusvaraujo/react_pomodoro
+2.Instale as dependências:
+  npm install
+3.Inicie com Expo: 
+  npx expo start
