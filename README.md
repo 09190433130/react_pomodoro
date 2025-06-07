@@ -41,8 +41,12 @@ Estudantes universitários frequentemente enfrentam dificuldades para manter o f
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/matheusvaraujo/react_pomodoro
+      git clone https://github.com/matheusvaraujo/react_pomodoro
+   
 2.Instale as dependências:
-  npm install
-3.Inicie com Expo: 
-  npx expo start
+```bash
+   npm install
+
+3.Inicie com Expo:
+```bash
+   npx expo start
