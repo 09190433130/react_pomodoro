@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Controle do Alimentador</title>
+  <style>
+    :root {
+      --laranja: #ff6600;
+      --preto: #121212;
+      --cinza: #2c2c2c;
+      --branco: #f2f2f2;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--preto);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--branco);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: var(--laranja);
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: #000;
+    }
+
+    .card {
+      background-color: var(--cinza);
+      margin-top: 2rem;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(255, 102, 0, 0.2);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .status {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .button {
+      background-color: var(--laranja);
+      border: none;
+      color: #000;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 1rem;
+    }
+
+    .button:hover {
+      background-color: #e65c00;
+    }
+
+    .form-group {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .form-group label {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .form-group input {
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      text-align: center;
+      width: 150px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🐾🐱🐶Alimentador de PET🐶🐱🐾</h1>
+  </header>
+
+<div class="card">
+    <p class="status">Status: <span id="status">Aguardando comando...</span></p>
+  
+    <!-- Novo box de ração -->
+    <div class="ration-box" id="ration-box">
+      🥣 Quantidade no reservatório: <strong id="quantidade-racao">500g</strong>
+    </div>
+  
+    <button class="button" onclick="alimentar()">Alimentar Agora</button>
+  
+    <div class="form-group">
+      <label for="horario">Agendar horário:</label>
+      <input type="time" id="horario" />
+      <button class="button" onclick="agendar()">Salvar Horário</button>
+    </div>
+  </div>
+  
+  <script>
+    function alimentar() {
+      fetch("http://192.168.0.100/feed")
+        .then(response => {
+          if (response.ok) {
+            document.getElementById("status").innerText = "Comando enviado com sucesso!";
+          } else {
+            document.getElementById("status").innerText = "Erro ao enviar comando.";
+          }
+        })
+        .catch(() => {
+          document.getElementById("status").innerText = "Falha de conexão com a placa.";
+        });
+    }
+
+    function agendar() {
+      const hora = document.getElementById("horario").value;
+      if (!hora) {
+        document.getElementById("status").innerText = "Por favor, selecione um horário.";
+        return;
+      }
+
+      fetch(`http://192.168.0.100/set-horario?hora=${hora}`)
+        .then(response => {
+          if (response.ok) {
+            document.getElementById("status").innerText = `Horário agendado para ${hora}`;
+          } else {
+            document.getElementById("status").innerText = "Erro ao agendar horário.";
+          }
+        })
+        .catch(() => {
+          document.getElementById("status").innerText = "Falha de conexão com a placa.";
+        });
+    }
+  </script>
+
+</body>
+</html>
